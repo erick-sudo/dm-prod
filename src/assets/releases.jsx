@@ -20,5 +20,3 @@ export const newestReleases = [
     desc: "Take a peek behind the camera as we unravel the magic of filmmaking, from pre-production planning to on-set challenges and post-production triumphs.",
   },
 ];
-
-console.log(mediaContentArray);
