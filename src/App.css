@@ -1,3 +1,46 @@
 * {
     box-sizing: border-box;
 }
+
+.scroll_x {
+    overflow-x: scroll;
+}
+
+.scroll_y {
+    overflow-y: scroll;
+}
+
+.scroll_x::-webkit-scrollbar {
+    max-height: 10px;
+}
+
+.scroll_y::-webkit-scrollbar {
+    max-width: 10px;
+}
+
+.scroll_x::-webkit-scrollbar,
+.scroll_y::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+.scroll_x::-webkit-scrollbar-thumb,
+.scroll_y::-webkit-scrollbar-thumb {
+    background-color: #493079;
+    border-radius: 20px;
+    height: 10px;
+}
+
+.box {
+    background-color: rgba(255, 255, 255, .2);
+    opacity: .7;
+    backdrop-filter: blur(10px);
+  }
+
+
+.francie {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(40px);
+    box-shadow: 0, 0, 10px, rgba(0, 0, 0, .2);
+    color: white;
+}
