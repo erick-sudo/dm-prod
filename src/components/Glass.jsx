@@ -1,6 +1,7 @@
 import React from "react";
 
 export function Glass({
+  onClick = () => {},
   opacity = 0.8,
   contentClassName = "",
   children,
@@ -9,10 +10,13 @@ export function Glass({
 }) {
   return (
     <div
+      onClick={typeof onClick === "function" ? onClick : () => {}}
       style={{ display: "flex", position: "relative" }}
       className={`${className}`}
     >
-      <div className="peer" style={{ zIndex: 2 }}>{children}</div>
+      <div className="peer" style={{ zIndex: 2 }}>
+        {children}
+      </div>
       <div
         style={{
           position: "absolute",
@@ -20,7 +24,7 @@ export function Glass({
           backdropFilter: "blur(20px)",
           opacity: typeof opacity === "number" ? opacity : 0.8,
           zIndex: 1,
-          display: "flex"
+          display: "flex",
         }}
         className={`${contentClassName}`}
       >

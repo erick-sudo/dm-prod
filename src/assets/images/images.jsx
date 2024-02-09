@@ -6,6 +6,7 @@ import microphone from "./microphone.jpg";
 import microphone2 from "./microphone.png";
 import recording from "./recording.jpg";
 import turntable from "./turntable.jpg";
+import video from "./video.jpg";
 
 export const images = {
   logo_tp,
@@ -15,5 +16,6 @@ export const images = {
   microphone,
   microphone2,
   recording,
-  turntable
+  turntable,
+  video,
 };

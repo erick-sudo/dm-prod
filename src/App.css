@@ -40,3 +40,19 @@
 .gray-text {
     color: rgb(152, 156, 163);
 }
+
+.swiper-pagination-bullet {
+    opacity: 0.5;
+    background-color: rgb(167, 139, 250) !important;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.line-shadow {
+    transition: 0.5s;
+}
+.line-shadow:hover {
+    box-shadow: 0.4em .04em 0.8em rgba(139, 174, 250, .5), -0.4em 0.04em 0.8em rgba(167, 139, 250, .5);
+}

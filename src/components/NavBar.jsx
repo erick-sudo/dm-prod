@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { images } from "../assets/images/images";
 import Logo from "./Logo";
+import { Glass } from "./Glass";
 
 export function NavBar() {
   const navigate = useNavigate();
@@ -22,17 +23,18 @@ export function NavBar() {
       </div>
       <div className="flex justify-end flex-grow py-4 px-12 gap-4 text-white text-xs">
         {navItems.map((item, idx) => (
-          <div
+          <Glass
             onClick={() => navigate(item.path)}
             className={`${
               pathname === item.path ? "ring-1 ring-white" : ""
-            } px-4 py-2`}
+            } px-4 py-2 backdrop-blur line-shadow hover:rounded overflow-hidden`}
             key={idx}
+            contentClassName="bg-white/10"
           >
             <span className="cursor-pointer duration-300 font-extrabold">
               {item.name}
             </span>
-          </div>
+          </Glass>
         ))}
       </div>
     </div>
