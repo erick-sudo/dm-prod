@@ -14,7 +14,7 @@ export function Glass({
       style={{ display: "flex", position: "relative" }}
       className={`${className}`}
     >
-      <div className="peer" style={{ zIndex: 2 }}>
+      <div className="peer flex-grow" style={{ zIndex: 2 }}>
         {children}
       </div>
       <div

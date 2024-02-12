@@ -9,13 +9,7 @@ import { newestReleases } from "../assets/releases";
 import { hosts } from "../assets/hosts";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { testimonials } from "../assets/testimonials";
-import {
-  Pagination,
-  Navigation,
-  FreeMode,
-  Mousewheel,
-  Autoplay,
-} from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import { SlShareAlt } from "react-icons/sl";
 
@@ -45,14 +39,14 @@ export function Home() {
             </div>
 
             <div className="p-4">
-              <div className="min-h-[70vh] mx-auto relative mb-12">
+              <div className="min-h-[50vh] mx-auto relative mb-12">
                 <div className="absolute top-[25%] -bottom-10 left-0  md:left-[50%] right-0 rounded-2xl overflow-hidden">
                   <img
                     className="w-full h-full object-cover opacity-50"
                     src={images.video}
                   />
                 </div>
-                <div className="absolute top-0 bottom-20 left-[15%] right-[15%] flex">
+                <div className="absolute top-0 bottom-20 left-2 md:left-[15%] right-2 md:right-[15%] flex">
                   <Glass
                     contentClassName="bg-white/10 rounded-2xl border-2 border-white/10"
                     className="flex-grow backdrop-blur-md"
@@ -76,14 +70,23 @@ export function Home() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 py-8 px-4">
-              <button className="line-shadow m-2 text-indigo-600 font-bold border rounded-[50px] bg-indigo-950 hover:backdrop-blur-lg border-indigo-600 py-4">
+            <div className="grid md:grid-cols-2 gap-x-6 py-8 px-4 w-max mx-auto">
+              <button className="line-shadow m-2 text-indigo-600 font-bold border rounded-[50px] bg-indigo-950 hover:backdrop-blur-lg border-indigo-600 py-2 px-6">
                 Documentaries
               </button>
-              <button className="line-shadow m-2 text-indigo-600 font-bold border rounded-[50px] bg-indigo-950 hover:backdrop-blur-lg border-indigo-600 py-4">
+              <button className="line-shadow m-2 text-indigo-600 font-bold border rounded-[50px] bg-indigo-950 hover:backdrop-blur-lg border-indigo-600 py-2 px-6">
                 Luo
               </button>
             </div>
+          </div>
+
+          {/*  */}
+          <div className="">
+            {new Array(7).fill(0).map((_, idx) => (
+              <Glass key={idx}>
+                
+              </Glass>
+            ))}
           </div>
         </div>
 
@@ -99,7 +102,7 @@ export function Home() {
               <br />
               Products
             </h2>
-            <div className="py-12 flex gap-6 scroll_x p-4">
+            <div className="py-12 grid md:grid-cols-2 xl:grid-cols-3 gap-6 scroll_ p-4">
               {[0, 2, 4, 6, 8, 10]
                 .map((i) => [products[i], products[i + 1]])
                 .map((pg, idx0) => (
@@ -148,13 +151,13 @@ export function Home() {
               Releases
             </h2>
             <h2 className="text-white mt-8">Auto Captions Ready.</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 my-12 gap-6">
+            <div className="grid md:grid-cols-2 xl:grid-cols-4 my-12 gap-6">
               {newestReleases.map((release, idx) => (
                 <Glass
-                  className="hover:scale-105 duration-300"
+                  className=""
                   opacity={0.95}
                   key={idx}
-                  contentClassName="bg-gradient-to-br from-[#004545] via-[#004545] to-[#004545da]"
+                  contentClassName="bg-gradient-to-br from-[#004545] via-[#004545] to-[#004545da] peer-hover:blur duration-300"
                 >
                   <div className="p-4">
                     <div className="min-h-[30vh] flex relative">
@@ -197,15 +200,15 @@ export function Home() {
             </h2>
 
             <div className="grid lg:grid-cols-2 gap-6 mt-12">
-              <div className="">
+              <div className="p-4">
                 <div className="min-h-[70vh] max-w-lg relative mx-auto group">
-                  <div className="group-hover:-translate-x-6 group-hover:scale-105 duration-500 rounded-2xl overflow-hidden absolute top-0 right-32 left-0 bottom-32">
+                  <div className="group-hover:-translate-y-6 duration-500 rounded-2xl overflow-hidden absolute top-0 right-32 left-0 bottom-32">
                     <img
                       className="h-full w-full object-cover"
                       src={images.recording}
                     />
                   </div>
-                  <div className="group-hover:translate-x-6 group-hover:scale-105 duration-500 rounded-2xl overflow-hidden absolute top-32 right-0 left-32 bottom-0">
+                  <div className="group-hover:translate-y-6 duration-500 rounded-2xl overflow-hidden absolute top-32 right-0 left-32 bottom-0">
                     <img
                       className="h-full w-full object-cover"
                       src={images.turntable}
@@ -229,7 +232,7 @@ export function Home() {
                   </div>
                 </div>
               </div>
-              <div className="justify-end grid md:grid-cols-2 gap-12 px-2">
+              <div className="justify-end grid md:grid-cols-2 gap-12 px-2 mt-12">
                 {hosts.map((host, idx) => (
                   <div className="max-w-[40vh]" key={idx}>
                     <ContentOnImage
@@ -267,18 +270,19 @@ export function Home() {
                 speed={2000}
                 className="p-12"
                 centeredSlides={true}
-                initialSlide={4}
-                freeMode
-                mousewheel
+                initialSlide={1}
                 breakpoints={{
                   0: { slidesPerView: 1 },
                   640: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                   },
                   769: {
                     slidesPerView: 2,
                   },
                   1024: {
+                    slidesPerView: 3,
+                  },
+                  1280: {
                     slidesPerView: 4,
                   },
                 }}
@@ -286,32 +290,42 @@ export function Home() {
                   pagination: true,
                   clickable: true,
                 }}
-                modules={[Navigation, Pagination, FreeMode, Mousewheel]}
+                modules={[Navigation, Pagination]}
               >
-                {testimonials.map((t, idx) => (
-                  <SwiperSlide className="m-4" key={idx}>
-                    <Glass
-                      className="overflow-hidden backdrop-blur py-12 px-4"
-                      contentClassName="rounded-2xl bg-white/10"
+                {new Array(Math.ceil(testimonials.length / 2))
+                  .fill(0)
+                  .map((_, idx) => [idx * 2, idx * 2 + 1])
+                  .map((ia) => testimonials.slice(ia[0], ia[1] + 1))
+                  .map((ts, idx1) => (
+                    <SwiperSlide
+                      key={idx1}
+                      className="mr-4 flex flex-col gap-4"
                     >
-                      <div className="flex flex-col">
-                        <div className="px-4 text-violet-400 text-4xl">
-                          <FontAwesomeIcon icon={faQuoteLeft} />
-                        </div>
-                        <div className="py-6 px-4 text-gray-300 flex-grow">
-                          {t.testimony}
-                        </div>
-                        <div className="flex my-4">
-                          <div className="w-1/3 border-b-2 border-violet-400"></div>
-                          <div className="w-2/3 border-b-2 border-gray-300"></div>
-                        </div>
-                        <div className="px-2 font-bold text-lg text-violet-400">
-                          {t.name}
-                        </div>
-                      </div>
-                    </Glass>
-                  </SwiperSlide>
-                ))}
+                      {ts.map((t, idx) => (
+                        <Glass
+                          key={idx}
+                          className="overflow-hidden backdrop-blur py-12 px-4"
+                          contentClassName="rounded-2xl bg-white/10"
+                        >
+                          <div className="flex flex-col">
+                            <div className="px-4 text-violet-400 text-4xl">
+                              <FontAwesomeIcon icon={faQuoteLeft} />
+                            </div>
+                            <div className="py-6 px-4 text-gray-300 flex-grow">
+                              {t.testimony}
+                            </div>
+                            <div className="flex my-4">
+                              <div className="w-1/3 border-b-2 border-violet-400"></div>
+                              <div className="w-2/3 border-b-2 border-gray-300"></div>
+                            </div>
+                            <div className="px-2 font-bold text-lg text-violet-400">
+                              {t.name}
+                            </div>
+                          </div>
+                        </Glass>
+                      ))}
+                    </SwiperSlide>
+                  ))}
               </Swiper>
             </div>
           </div>

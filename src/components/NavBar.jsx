@@ -19,7 +19,7 @@ export function NavBar() {
   return (
     <div className="flex flex-col md:flex-row md:items-start p-4">
       <div className="flex">
-        <Logo sz={80} />
+        <Logo sz={100} />
       </div>
       <div className="flex justify-end flex-grow py-4 px-12 gap-4 text-white text-xs">
         {navItems.map((item, idx) => (
