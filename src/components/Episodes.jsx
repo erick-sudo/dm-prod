@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavBar } from "./NavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -7,6 +7,8 @@ import { Episode } from "./Episode";
 import { episodes } from "../assets/episodes/episodes";
 
 export function Episodes() {
+  const [search, setSearch] = useState("Searching");
+
   return (
     <div>
       <div
@@ -23,22 +25,31 @@ export function Episodes() {
               tellus, luctus nec ullamcorper mattis, pulvinar.
             </div>
           </div>
-          <div className="px-6">
+          <div className="px-6 border">
             <Glass
               className="p-2 max-w-4xl mx-auto flex line-shadow rounded-[100px] overflow-hidden"
               contentClassName="bg-white/10 "
             >
               <div className="flex items-center gap-4 flex-grow px-4 backdrop-blur">
                 <FontAwesomeIcon
-                  className="text-2xl text-white/20"
+                  className="text-xl text-gray-400"
                   icon={faSearch}
                 />
                 <input
-                  className="outline-none py-2 px-6 flex-grow bg-transparent font-bold text-xl text-indigo-500"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="outline-none py-1 px-6 flex-grow bg-transparent text-lg text-gray-400"
                   placeholder="Search"
                 />
               </div>
             </Glass>
+            <div className="absolute z-50 bg-white/10 ">
+              {search.split("").map((t, i) => (
+                <div className="text-white" key={i}>
+                  {search.slice(0, i + 1)}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

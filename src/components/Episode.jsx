@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { videos } from "../assets/videos";
 import { episodeDetails } from "../assets/episodes/episodes";
 import { Glass } from "./Glass";
@@ -7,10 +7,11 @@ import { RiStarLine, RiStarSFill } from "react-icons/ri";
 import { images } from "../assets/images/images";
 
 export function Episode() {
+
   return (
     <div className="grid lg:grid-cols-2 gap-4">
       <div className="grid">
-        <h2 className="text-violet-600 font-bold text-2xl p-4">
+        <h2 className="text-violet-600 font-bold text-2xl">
           {episodeDetails.title}
         </h2>
         <h2 className="gray-text font-bold px-4 bg-indigo-600/10 my-2 py-2 backdrop-blur">
@@ -19,43 +20,46 @@ export function Episode() {
         <h2 className="gray-text font-bold px-4 bg-indigo-600/10 my-2 py-2 backdrop-blur">
           EPISODE {episodeDetails.episode_number}
         </h2>
-        <div className="p-4">
+        <div className="">
           <div className="min-h-[40vh]">
             <video
               src={videos.conferenceVideo}
               controls
-              className="h-[40vh] mx-auto"
+              className="h-[40vh] w-full p-4 bg-black backdrop-blur"
             ></video>
           </div>
         </div>
 
         <div>
-            <button className=""></button>
+          <button className=""></button>
         </div>
 
-        <div className="">
-          <h2 className="font-extrabold text-xl text-gray-300">Summary</h2>
-          <div className="max-w-lg gray-text">{episodeDetails.summary}</div>
-        </div>
+        <div className="max-w-lg text-gray-200">{episodeDetails.summary}</div>
 
-        <div className="">
-          <h2 className="font-extrabold text-xl text-gray-300 px-2">Ratings</h2>
-          <div className="gray-text flex text-2xl">
-            {new Array(10)
-              .fill(1)
-              .map((_, idx) =>
-                episodeDetails.ratings.IMDb <= idx + 1 ? (
-                  <RiStarLine key={idx} />
-                ) : (
-                  <RiStarSFill key={idx} />
-                )
-              )}
-          </div>
+        <div className="gray-text flex text-2xl text-indigo-400">
+          {new Array(10)
+            .fill(1)
+            .map((_, idx) =>
+              episodeDetails.ratings.IMDb <= idx + 1 ? (
+                <RiStarLine key={idx} />
+              ) : (
+                <RiStarSFill key={idx} />
+              )
+            )}
         </div>
       </div>
 
       <div className="p-6">
-        <Glass className="backdrop-blur-sm" contentClassName="bg-indigo-600/10" backgroundContent={<img className="w-full h-full blur-2xl opacity-25" src={images.turntable} />}>
+        <Glass
+          className="backdrop-blur-sm"
+          contentClassName="bg-indigo-600/10"
+          backgroundContent={
+            <img
+              className="w-full h-full blur-2xl opacity-25"
+              src={images.turntable}
+            />
+          }
+        >
           <div className="text-white grid gap-4 py-12">
             <div className="grid grid-cols-2 gap-2">
               <h2 className="text-end px-4">Duration:</h2>
